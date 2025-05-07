@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Mic24Regular, Mic24Filled, WavePulse24Regular } from "@fluentui/react-icons";
+import { MicRegular, MicFilled, SpeakerWaves24Regular } from "@fluentui/react-icons";
 import { cn } from "@/lib/utils";
 
 export type BotState = "idle" | "listening" | "speaking";
@@ -99,12 +99,12 @@ export const EchoPulseIcon = ({
         </div>
       ) : (
         state === "listening" ? (
-          <Mic24Filled 
+          <MicFilled 
             fontSize={sizes[size].icon} 
             className="text-fluent-primary"
           />
         ) : (
-          <Mic24Regular
+          <MicRegular
             fontSize={sizes[size].icon} 
             className="text-fluent-primary"
           />

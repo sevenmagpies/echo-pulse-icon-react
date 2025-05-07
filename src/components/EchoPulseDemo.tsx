@@ -3,8 +3,8 @@ import { useState } from "react";
 import { EchoPulseIcon, BotState } from "./EchoPulseIcon";
 import { Button } from "@/components/ui/button";
 import { 
-  WavePulse24Regular, 
-  Mic24Regular, 
+  SpeakerWaves24Regular, 
+  MicRegular, 
   Speaker224Regular, 
   PauseCircle24Regular 
 } from "@fluentui/react-icons";
@@ -95,7 +95,7 @@ const EchoPulseDemo = () => {
             }}
             className={botState === "listening" ? "border-fluent-primary text-fluent-primary" : ""}
           >
-            <Mic24Regular className="mr-2 h-4 w-4" />
+            <MicRegular className="mr-2 h-4 w-4" />
             Listening
           </Button>
           <Button 
@@ -106,7 +106,7 @@ const EchoPulseDemo = () => {
             }}
             className={botState === "speaking" ? "border-fluent-primary text-fluent-primary" : ""}
           >
-            <WavePulse24Regular className="mr-2 h-4 w-4" />
+            <SpeakerWaves24Regular className="mr-2 h-4 w-4" />
             Speaking
           </Button>
         </div>
