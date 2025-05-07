@@ -99,17 +99,25 @@ export const EchoPulseIcon = ({
         </div>
       ) : (
         state === "listening" ? (
-          <div className="bg-echo-gradient p-0.5 rounded-full">
+          <div className="icon-wrapper relative">
             <MicFilled 
               fontSize={sizes[size].icon} 
-              className="text-white"
+              className="text-transparent bg-clip-text bg-echo-gradient"
+              style={{ 
+                WebkitBackgroundClip: "text",
+                backgroundImage: "linear-gradient(to right, #6e27d4, #4146ce, #181dae)" 
+              }}
             />
           </div>
         ) : (
-          <div className="bg-echo-gradient p-0.5 rounded-full">
+          <div className="icon-wrapper relative">
             <MicRegular
               fontSize={sizes[size].icon} 
-              className="text-white"
+              className="text-transparent bg-clip-text bg-echo-gradient"
+              style={{ 
+                WebkitBackgroundClip: "text",
+                backgroundImage: "linear-gradient(to right, #6e27d4, #4146ce, #181dae)" 
+              }}
             />
           </div>
         )
