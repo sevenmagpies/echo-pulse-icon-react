@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { MicRegular, MicFilled, SoundWaveCircle24Filled } from "@fluentui/react-icons";
+import { MicRegular, MicFilled } from "@fluentui/react-icons";
 import { cn } from "@/lib/utils";
 
 export type BotState = "idle" | "listening" | "speaking";
@@ -99,15 +99,19 @@ export const EchoPulseIcon = ({
         </div>
       ) : (
         state === "listening" ? (
-          <MicFilled 
-            fontSize={sizes[size].icon} 
-            className="text-transparent bg-clip-text bg-echo-gradient"
-          />
+          <div className="bg-echo-gradient p-0.5 rounded-full">
+            <MicFilled 
+              fontSize={sizes[size].icon} 
+              className="text-white"
+            />
+          </div>
         ) : (
-          <MicRegular
-            fontSize={sizes[size].icon} 
-            className="text-transparent bg-clip-text bg-echo-gradient"
-          />
+          <div className="bg-echo-gradient p-0.5 rounded-full">
+            <MicRegular
+              fontSize={sizes[size].icon} 
+              className="text-white"
+            />
+          </div>
         )
       )}
     </div>
