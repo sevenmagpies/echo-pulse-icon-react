@@ -64,7 +64,7 @@ export const EchoPulseIcon = ({
           key={i}
           className={cn(
             sizes[size].bar,
-            "h-1/2 bg-fluent-primary rounded-full transform origin-bottom",
+            "h-1/2 rounded-full transform origin-bottom bg-echo-gradient",
             state === "speaking" && animClass
           )}
           style={{ 
@@ -89,7 +89,7 @@ export const EchoPulseIcon = ({
     >
       {/* Ripple effect for listening state */}
       {state === "listening" && (
-        <div className="absolute inset-0 rounded-full border-2 border-fluent-secondary animate-ripple"></div>
+        <div className="absolute inset-0 rounded-full border-2 border-echo-gradient animate-ripple"></div>
       )}
       
       {/* Icon changes based on state */}
@@ -101,12 +101,12 @@ export const EchoPulseIcon = ({
         state === "listening" ? (
           <MicFilled 
             fontSize={sizes[size].icon} 
-            className="text-fluent-primary"
+            className="text-transparent bg-clip-text bg-echo-gradient"
           />
         ) : (
           <MicRegular
             fontSize={sizes[size].icon} 
-            className="text-fluent-primary"
+            className="text-transparent bg-clip-text bg-echo-gradient"
           />
         )
       )}

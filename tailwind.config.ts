@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,6 +67,11 @@ export default {
 					secondary: '#50E6FF',
 					background: '#F3F2F1',
 					accent: '#2B88D8',
+					gradient: {
+						start: '#6e27d4',
+						middle: '#4146ce',
+						end: '#181dae',
+					}
 				}
 			},
 			keyframes: {
@@ -127,7 +131,10 @@ export default {
 				'wave-normal': 'wave 1.5s ease-in-out infinite',
 				'wave-slow': 'wave-alt 1.8s ease-in-out infinite',
 				'ripple': 'ripple 2s ease-out infinite',
-			}
+			},
+			backgroundImage: {
+				'echo-gradient': 'linear-gradient(to right, #6e27d4, #4146ce, #181dae)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
