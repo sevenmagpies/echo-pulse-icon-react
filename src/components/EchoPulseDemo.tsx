@@ -73,6 +73,10 @@ const useStyles = makeStyles({
     fontSize: tokens.fontSizeBase200,
     color: tokens.colorNeutralForeground3,
     ...shorthands.margin("24px", "0", "0", "0")
+  },
+  demoTitle: {
+    fontSize: tokens.fontSizeBase500,
+    fontWeight: tokens.fontWeightSemibold
   }
 });
 
@@ -137,7 +141,7 @@ const EchoPulseDemo = () => {
       </div>
       
       <Card className={styles.demoCard}>
-        <Title1 as="h2" size="small">Interactive Demo</Title1>
+        <Text className={styles.demoTitle}>Interactive Demo</Text>
         
         <div>
           <EchoPulseIcon state={botState} size="lg" />
@@ -181,7 +185,7 @@ const EchoPulseDemo = () => {
         
         <Button 
           className={styles.autoButton}
-          appearance={isAutoDemo ? "destructive" : "primary"}
+          appearance={isAutoDemo ? "secondary" : "primary"}
           onClick={startAutoDemoSequence}
         >
           {isAutoDemo ? "Stop Auto Demo" : "Start Auto Demo"}
