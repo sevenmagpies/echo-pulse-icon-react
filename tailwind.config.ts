@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,12 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				fluent: {
+					primary: '#0078D4',
+					secondary: '#50E6FF',
+					background: '#F3F2F1',
+					accent: '#2B88D8',
 				}
-			},
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +86,47 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-gentle': {
+					'0%, 100%': { 
+						transform: 'scale(1)',
+						opacity: '0.8' 
+					},
+					'50%': { 
+						transform: 'scale(1.05)',
+						opacity: '1' 
+					}
+				},
+				'wave': {
+					'0%': { height: '30%' },
+					'20%': { height: '60%' },
+					'40%': { height: '40%' },
+					'60%': { height: '80%' },
+					'80%': { height: '35%' },
+					'100%': { height: '30%' }
+				},
+				'wave-alt': {
+					'0%': { height: '40%' },
+					'20%': { height: '30%' },
+					'40%': { height: '70%' },
+					'60%': { height: '50%' },
+					'80%': { height: '85%' },
+					'100%': { height: '40%' }
+				},
+				'ripple': {
+					'0%': { transform: 'scale(0.8)', opacity: '0.8' },
+					'50%': { transform: 'scale(1.2)', opacity: '0.2' },
+					'100%': { transform: 'scale(1.5)', opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-gentle': 'pulse-gentle 2s ease-in-out infinite',
+				'wave-fast': 'wave 1.2s ease-in-out infinite',
+				'wave-normal': 'wave 1.5s ease-in-out infinite',
+				'wave-slow': 'wave-alt 1.8s ease-in-out infinite',
+				'ripple': 'ripple 2s ease-out infinite',
 			}
 		}
 	},
