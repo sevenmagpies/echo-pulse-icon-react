@@ -1,13 +1,83 @@
+
 import { useState } from "react";
 import { EchoPulseIcon, BotState } from "./EchoPulseIcon";
-import { Button } from "@/components/ui/button";
 import { 
   SoundWaveCircle24Filled, 
   MicRegular, 
   PauseCircle24Regular 
 } from "@fluentui/react-icons";
+import {
+  Button,
+  Text,
+  Title1,
+  Card,
+  makeStyles,
+  tokens,
+  shorthands
+} from "@fluentui/react-components";
+
+const useStyles = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center", 
+    ...shorthands.gap("20px"),
+    ...shorthands.padding("20px")
+  },
+  description: {
+    textAlign: "center",
+    maxWidth: "500px",
+    color: tokens.colorNeutralForeground2
+  },
+  iconsGroup: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    ...shorthands.gap("40px"),
+    ...shorthands.margin("20px", "0")
+  },
+  iconContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    ...shorthands.gap("12px")
+  },
+  iconLabel: {
+    fontSize: tokens.fontSizeBase200,
+    color: tokens.colorNeutralForeground3
+  },
+  demoCard: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    ...shorthands.gap("24px"),
+    ...shorthands.padding("24px"),
+    width: "100%",
+    maxWidth: "400px"
+  },
+  buttonsGroup: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    ...shorthands.gap("12px")
+  },
+  activeButton: {
+    backgroundColor: tokens.colorBrandBackground,
+    color: tokens.colorNeutralForegroundOnBrand
+  },
+  autoButton: {
+    width: "100%"
+  },
+  footer: {
+    fontSize: tokens.fontSizeBase200,
+    color: tokens.colorNeutralForeground3,
+    ...shorthands.margin("24px", "0", "0", "0")
+  }
+});
 
 const EchoPulseDemo = () => {
+  const styles = useStyles();
   const [botState, setBotState] = useState<BotState>("idle");
   const [isAutoDemo, setIsAutoDemo] = useState(false);
   
@@ -44,82 +114,83 @@ const EchoPulseDemo = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-8 p-8">
-      <h1 className="text-3xl font-bold text-fluent-primary">Echo Pulse Icon</h1>
-      <p className="text-center max-w-md text-gray-600">
+    <div className={styles.container}>
+      <Title1>Echo Pulse Icon</Title1>
+      <Text className={styles.description}>
         A Microsoft Fluent 2 inspired icon that reacts to the voice of a chatbot.
         It pulses gently when listening and animates dynamically when speaking.
-      </p>
+      </Text>
       
-      <div className="flex flex-wrap justify-center gap-10 my-8">
-        <div className="flex flex-col items-center space-y-3">
+      <div className={styles.iconsGroup}>
+        <div className={styles.iconContainer}>
           <EchoPulseIcon state="idle" size="lg" />
-          <span className="text-sm text-gray-500">Idle</span>
+          <Text className={styles.iconLabel}>Idle</Text>
         </div>
-        <div className="flex flex-col items-center space-y-3">
+        <div className={styles.iconContainer}>
           <EchoPulseIcon state="listening" size="lg" />
-          <span className="text-sm text-gray-500">Listening</span>
+          <Text className={styles.iconLabel}>Listening</Text>
         </div>
-        <div className="flex flex-col items-center space-y-3">
+        <div className={styles.iconContainer}>
           <EchoPulseIcon state="speaking" size="lg" />
-          <span className="text-sm text-gray-500">Speaking</span>
+          <Text className={styles.iconLabel}>Speaking</Text>
         </div>
       </div>
       
-      <div className="flex flex-col items-center space-y-6 bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-xl font-semibold text-fluent-primary">Interactive Demo</h2>
+      <Card className={styles.demoCard}>
+        <Title1 as="h2" size="small">Interactive Demo</Title1>
         
-        <div className="flex justify-center">
+        <div>
           <EchoPulseIcon state={botState} size="lg" />
         </div>
         
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className={styles.buttonsGroup}>
           <Button 
-            variant="outline"
+            appearance="outline"
             onClick={() => {
               setIsAutoDemo(false);
               setBotState("idle");
             }}
-            className={botState === "idle" ? "border-fluent-primary text-fluent-primary" : ""}
+            className={botState === "idle" ? styles.activeButton : ""}
+            icon={<PauseCircle24Regular />}
           >
-            <PauseCircle24Regular className="mr-2 h-4 w-4" />
             Idle
           </Button>
           <Button 
-            variant="outline"
+            appearance="outline"
             onClick={() => {
               setIsAutoDemo(false);
               setBotState("listening");
             }}
-            className={botState === "listening" ? "border-fluent-primary text-fluent-primary" : ""}
+            className={botState === "listening" ? styles.activeButton : ""}
+            icon={<MicRegular />}
           >
-            <MicRegular className="mr-2 h-4 w-4" />
             Listening
           </Button>
           <Button 
-            variant="outline"
+            appearance="outline"
             onClick={() => {
               setIsAutoDemo(false);
               setBotState("speaking");
             }}
-            className={botState === "speaking" ? "border-fluent-primary text-fluent-primary" : ""}
+            className={botState === "speaking" ? styles.activeButton : ""}
+            icon={<SoundWaveCircle24Filled />}
           >
-            <SoundWaveCircle24Filled className="mr-2 h-4 w-4" />
             Speaking
           </Button>
         </div>
         
         <Button 
+          className={styles.autoButton}
+          appearance={isAutoDemo ? "destructive" : "primary"}
           onClick={startAutoDemoSequence}
-          className={`w-full ${isAutoDemo ? "bg-destructive hover:bg-destructive/90" : "bg-fluent-accent hover:bg-fluent-accent/90"}`}
         >
           {isAutoDemo ? "Stop Auto Demo" : "Start Auto Demo"}
         </Button>
-      </div>
+      </Card>
       
-      <div className="text-sm text-gray-500 mt-6">
-        <p>The icon changes appearance and animation based on the chatbot's state.</p>
-      </div>
+      <Text className={styles.footer}>
+        The icon changes appearance and animation based on the chatbot's state.
+      </Text>
     </div>
   );
 };
