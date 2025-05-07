@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { MicRegular, MicFilled, SpeakerWaves24Regular } from "@fluentui/react-icons";
+import { MicRegular, MicFilled, SoundWaveCircle24Filled } from "@fluentui/react-icons";
 import { cn } from "@/lib/utils";
 
 export type BotState = "idle" | "listening" | "speaking";
