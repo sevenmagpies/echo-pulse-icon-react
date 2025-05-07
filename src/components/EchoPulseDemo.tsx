@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import { EchoPulseIcon, BotState } from "./EchoPulseIcon";
 import { Button } from "@/components/ui/button";
 import { 
   SoundWaveCircle24Filled, 
   MicRegular, 
-  Speaker224Regular, 
   PauseCircle24Regular 
 } from "@fluentui/react-icons";
 
