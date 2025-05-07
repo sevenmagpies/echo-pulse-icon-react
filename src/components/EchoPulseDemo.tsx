@@ -2,7 +2,12 @@
 import { useState } from "react";
 import { EchoPulseIcon, BotState } from "./EchoPulseIcon";
 import { Button } from "@/components/ui/button";
-import { AudioWaveform, Mic, Volume2, CirclePause } from "lucide-react";
+import { 
+  WavePulse24Regular, 
+  Mic24Regular, 
+  Speaker224Regular, 
+  PauseCircle24Regular 
+} from "@fluentui/react-icons";
 
 const EchoPulseDemo = () => {
   const [botState, setBotState] = useState<BotState>("idle");
@@ -79,7 +84,7 @@ const EchoPulseDemo = () => {
             }}
             className={botState === "idle" ? "border-fluent-primary text-fluent-primary" : ""}
           >
-            <CirclePause className="mr-2 h-4 w-4" />
+            <PauseCircle24Regular className="mr-2 h-4 w-4" />
             Idle
           </Button>
           <Button 
@@ -90,7 +95,7 @@ const EchoPulseDemo = () => {
             }}
             className={botState === "listening" ? "border-fluent-primary text-fluent-primary" : ""}
           >
-            <Mic className="mr-2 h-4 w-4" />
+            <Mic24Regular className="mr-2 h-4 w-4" />
             Listening
           </Button>
           <Button 
@@ -101,7 +106,7 @@ const EchoPulseDemo = () => {
             }}
             className={botState === "speaking" ? "border-fluent-primary text-fluent-primary" : ""}
           >
-            <AudioWaveform className="mr-2 h-4 w-4" />
+            <WavePulse24Regular className="mr-2 h-4 w-4" />
             Speaking
           </Button>
         </div>

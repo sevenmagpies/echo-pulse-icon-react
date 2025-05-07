@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Mic, AudioWaveform } from "lucide-react";
+import { Mic24Regular, Mic24Filled, WavePulse24Regular } from "@fluentui/react-icons";
 import { cn } from "@/lib/utils";
 
 export type BotState = "idle" | "listening" | "speaking";
@@ -98,11 +98,17 @@ export const EchoPulseIcon = ({
           {renderWaveformBars()}
         </div>
       ) : (
-        <Mic 
-          size={sizes[size].icon} 
-          className="text-fluent-primary"
-          strokeWidth={state === "listening" ? 2.5 : 2}
-        />
+        state === "listening" ? (
+          <Mic24Filled 
+            fontSize={sizes[size].icon} 
+            className="text-fluent-primary"
+          />
+        ) : (
+          <Mic24Regular
+            fontSize={sizes[size].icon} 
+            className="text-fluent-primary"
+          />
+        )
       )}
     </div>
   );
