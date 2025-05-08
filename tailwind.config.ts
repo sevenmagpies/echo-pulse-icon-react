@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -101,6 +102,16 @@ export default {
 						opacity: '1' 
 					}
 				},
+				'subtle-pulse': {
+					'0%, 100%': { 
+						transform: 'scale(1)',
+						opacity: '0.95' 
+					},
+					'50%': { 
+						transform: 'scale(1.02)',
+						opacity: '1' 
+					}
+				},
 				'wave': {
 					'0%': { height: '30%' },
 					'20%': { height: '60%' },
@@ -121,16 +132,23 @@ export default {
 					'0%': { transform: 'scale(0.8)', opacity: '0.8' },
 					'50%': { transform: 'scale(1.2)', opacity: '0.2' },
 					'100%': { transform: 'scale(1.5)', opacity: '0' }
+				},
+				'subtle-ripple': {
+					'0%': { transform: 'scale(0.95)', opacity: '0.6' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.3' },
+					'100%': { transform: 'scale(1.1)', opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-gentle': 'pulse-gentle 2s ease-in-out infinite',
+				'subtle-pulse': 'subtle-pulse 2.5s ease-in-out infinite',
 				'wave-fast': 'wave 1.2s ease-in-out infinite',
 				'wave-normal': 'wave 1.5s ease-in-out infinite',
 				'wave-slow': 'wave-alt 1.8s ease-in-out infinite',
 				'ripple': 'ripple 2s ease-out infinite',
+				'subtle-ripple': 'subtle-ripple 2.5s ease-out infinite',
 			},
 			backgroundImage: {
 				'echo-gradient': 'linear-gradient(to right, #6e27d4, #4146ce, #181dae)',

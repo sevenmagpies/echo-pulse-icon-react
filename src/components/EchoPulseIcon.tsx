@@ -83,13 +83,13 @@ export const EchoPulseIcon = ({
         "relative flex items-center justify-center rounded-full bg-fluent-background",
         sizes[size].container,
         isAnimating && "scale-105 transition-transform duration-300",
-        state === "listening" && "animate-pulse-gentle",
+        state === "listening" && "animate-subtle-pulse", // Changed from animate-pulse-gentle to animate-subtle-pulse
         className
       )}
     >
-      {/* Ripple effect for listening state */}
+      {/* Subtle ripple effect for listening state */}
       {state === "listening" && (
-        <div className="absolute inset-0 rounded-full border-2 border-purple-600 animate-ripple"></div>
+        <div className="absolute inset-0 rounded-full border-2 border-purple-600 animate-subtle-ripple"></div>
       )}
       
       {/* Icon changes based on state */}
