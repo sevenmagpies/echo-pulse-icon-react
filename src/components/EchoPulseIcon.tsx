@@ -23,17 +23,17 @@ export const EchoPulseIcon = ({
     sm: {
       container: "w-8 h-8",
       icon: 16,
-      bar: "w-0.5 mx-[1px]"
+      bar: "w-0.5 mx-[0.5px]"
     },
     md: {
       container: "w-12 h-12",
       icon: 24,
-      bar: "w-1 mx-[1px]"
+      bar: "w-0.75 mx-[0.5px]"
     },
     lg: {
       container: "w-16 h-16",
       icon: 32,
-      bar: "w-1.5 mx-[1px]"
+      bar: "w-1 mx-[0.75px]"
     }
   };
 
@@ -49,7 +49,7 @@ export const EchoPulseIcon = ({
   // Render audio waveform bars
   const renderWaveformBars = () => {
     const bars = [];
-    const totalBars = 9;
+    const totalBars = 7; // Reduced from 9 to 7 for a more compact look
     
     for (let i = 0; i < totalBars; i++) {
       // Create variation in animations by alternating classes
@@ -64,12 +64,12 @@ export const EchoPulseIcon = ({
           key={i}
           className={cn(
             sizes[size].bar,
-            "h-1/2 rounded-full transform origin-bottom bg-purple-600",
+            "rounded-full transform origin-bottom bg-purple-600",
             state === "speaking" && animClass
           )}
           style={{ 
             animationDelay: delay,
-            height: state === "speaking" ? `${30 + Math.random() * 40}%` : "30%"
+            height: state === "speaking" ? `${20 + Math.random() * 30}%` : "20%" // Reduced height range
           }}
         />
       );
@@ -94,7 +94,7 @@ export const EchoPulseIcon = ({
       
       {/* Icon changes based on state */}
       {state === "speaking" ? (
-        <div className="flex items-center justify-center h-full space-x-[1px]">
+        <div className="flex items-center justify-center h-full w-full px-2">
           {renderWaveformBars()}
         </div>
       ) : (
